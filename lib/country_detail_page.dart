@@ -194,13 +194,13 @@ Widget build(BuildContext context) {
                   children: [
                     Expanded(child: Divider(color: Colors.indigo[200])),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
+                      padding: EdgeInsets.symmetric(horizontal: 12),
                       child: Text(
                         '나라 소개',
                         style: TextStyle(
                           fontSize: 16,
-                          fontWeight: FontWeight.normal,
-                          color: Colors.indigo[400],
+                          fontWeight: FontWeight.w600,
+                          color: Colors.indigo[700],
                           letterSpacing: 2,
                         ),
                       ),
@@ -223,6 +223,45 @@ Widget build(BuildContext context) {
               ],
             ),
           ),
+
+          // Column의 children에 추가
+          SizedBox(height: 30),
+
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: SizedBox(
+              width: double.infinity,
+              child: ElevatedButton.icon(
+                onPressed: () {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('$name에 대해 더 알아보기!'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                },
+                icon: Icon(Icons.public),
+                label: Text(
+                  '더 알아보기',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.indigo,
+                  foregroundColor: Colors.white,
+                  padding: EdgeInsets.symmetric(vertical: 10),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  elevation: 3,
+                ),
+              ),
+            ),
+          ),
+
+          SizedBox(height: 30),
 
         ],
       ),
